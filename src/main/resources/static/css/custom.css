@@ -1,0 +1,14 @@
+.container{
+    padding-top: 70px;
+}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 50px;
+    background-color: #FFFFFF;
+    color: #000;
+    text-align: center;
+}

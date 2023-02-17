@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NYC - Invoice Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info text-center text-white">
+            <h3>List Of Invoices</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr class="bg-dark text-white">
+                    <th>ID</th>
+                    <th>Désignation</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                <tr th:each="ob:${list}">
+                    <td th:text=${ob.id}></td>
+                    <td th:text=${ob.designation}></td>
+                    <td th:text=${ob.dateCreation}></td>
+                    <td th:text=${ob.status}></td>
+                    <!--<td th:text=${ob.amount}></td>-->
+                    <td>
+                        <a th:href="@{/facture/consulter(id=${ob.id})}" class="btn btn-info">consulter <i
+                            class="fa fa-trash-o" aria-hidden="true"></i>
+                        </a>
+                        <a th:href="@{/facture/supprimer(id=${ob.id})}" class="btn btn-danger">Supprimer <i
+                            class="fa fa-trash-o" aria-hidden="true"></i>
+                        </a>
+                        <a th:href="@{/facture/modifier(id=${ob.id})}" class="btn btn-warning">Modifier <i
+                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <a th:href="@{/facture/creer}" class="btn btn-success ">
+                <i class="bi bi-plus-circle-fill"></i> Ajouter une facture
+            </a>
+            <a th:href="@{/home}" class="btn btn-primary">
+                <i class="bi bi-house-door-fill"></i> Accueil
+            </a>
+        </div>
+        <div class="card-footer bg-white text-success" th:if="${message!=null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>

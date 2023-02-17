@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NYC - Invoice Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}"/>
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+<div class="container">
+    <div class="card-header bg-info text-center text-white">
+        <h3>List de produits</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr class="bg-dark text-white">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            <tr th:each="ob:${list}">
+                <td th:text=${ob.id}></td>
+                <td th:text=${ob.name}></td>
+                <td th:text=${ob.price}></td>
+                <!--<td th:text=${ob.amount}></td>-->
+                <td>
+                    <a th:href="@{/produit/consulter(id=${ob.id})}" class="btn btn-info">consulter <i
+                            class="fa fa-trash-o" aria-hidden="true"></i>
+                    </a>
+                    <a th:href="@{/produit/supprimer(id=${ob.id})}" class="btn btn-danger">Supprimer <i
+                            class="fa fa-trash-o" aria-hidden="true"></i>
+                    </a>
+                    <a th:href="@{/produit/modifier(id=${ob.id})}" class="btn btn-warning">Modifier <i
+                            class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <a th:href="@{/produit/creer}" class="btn btn-success ">
+            <i class="bi bi-plus-circle-fill"></i> Ajouter un produit
+        </a>
+        <a th:href="@{/home}" class="btn btn-primary">
+            <i class="bi bi-house-door-fill"></i> Accueil
+        </a>
+    </div>
+    <div class="card-footer bg-white text-success" th:if="${message!=null}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery-ui.min.js}"></script>
+<script th:replace="functions :: javascript"></script>
+</body>
+</html>

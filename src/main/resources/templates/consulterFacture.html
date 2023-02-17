@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NYC - Invoice Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+<div class="card">
+    <div class="card-body">
+        <div class="container mb-5 mt-3">
+            <div class="row d-flex align-items-baseline">
+                <div class="col-xl-9">
+                    <p style="color: #7e8d9f;font-size: 20px;">
+                        Facture >> <strong>ID: #123-123</strong>
+                    </p>
+                </div>
+                <div class="col-xl-3 float-end">
+                    <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark">
+                        <i class="bi bi-printer" style="color: lightskyblue"></i> Print
+                    </a>
+                    <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark">
+                        <i class="bi bi-file-earmark-pdf" style="color: darkred"></i> Export
+                    </a>
+                </div>
+                <hr>
+            </div>
+
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <i class="bi bi-receipt" style="color:#5d9fc5;"></i>
+                        <p class="pt-0" style="color:#5d9fc5;">NearYou Consulting</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <ul class="list-unstyled">
+                            <li class="text-muted">Client: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                            <li class="text-muted">Address: </li>
+                            <li class="text-muted">ICE: </li>
+                            <li class="text-muted">Tél: +212 6 70 29 39 84</li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-4">
+                        <p class="text-muted">FACTURE</p>
+                        <ul class="list-unstyled">
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#84B0CA;"></i>
+                                <span class="fw-bold">Numéro de facture:</span> #123-456
+                            </li>
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#84B0CA;"></i>
+                                <span class="fw-bold">Date:</span> Jun 23,2021
+                            </li>
+                            <li class="text-muted">
+                                <i class="fas fa-circle" style="color:#84B0CA;"></i>
+                                <span class="me-1 fw-bold">Status:</span>
+                                <span class="badge bg-warning text-black fw-bold">Unpaid</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row my-2 mx-1 justify-content-center">
+                    <table class="table table-striped table-borderless">
+                        <thead style="background-color:#84B0CA ;" class="text-white">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Désignation</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Prix Unitaire HT</th>
+                            <th scope="col">Prix Total HT</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Pro Package</td>
+                            <td>4</td>
+                            <td>$200</td>
+                            <td>$800</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <p class="ms-3">Add additional notes and payment information</p>
+
+                    </div>
+                    <div class="col-xl-3">
+                        <ul class="list-unstyled">
+                            <li class="text-muted ms-3">
+                                <span class="text-black me-4">Total Hors Tax (HT)</span>
+                                <span style="float: right">$1110</span>
+                            </li>
+                            <li class="text-muted ms-3 mt-2">
+                                <span class="text-black me-4">TVA (20%)</span>
+                                <span style="float: right">$111</span>
+                            </li>
+                        </ul>
+                        <p class="text-black float-start"><span class="text-black me-3"> Total TTC en dirham</span>
+                            <span style="font-size: 25px;">$1221</span>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xl-10">
+                        <p>Thank you for your purchase</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NYC - Invoice Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Edit Invoice</h3>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/facture/update}" method="POST" id="invoiceForm" th:object="${facture}">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="id">ID</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{id}" class="form-control" readonly/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="createdAt">Date</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{createdAt}" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="status">STATUS</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{status}" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <!--<div class="row">
+                    <div class="col-2">
+                        <label for="amount">AMOUNT</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{amount}" class="form-control"/>
+                    </div>
+                </div>-->
+                <br/>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-arrow-clockwise"></i> Modifier
+                </button>
+                <a th:href="@{/facture/factures}" class="btn btn-primary">
+                    <i class="bi bi-eye-fill"></i> Factures
+                </a>
+            </form>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NYC - Invoice Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info text-center text-white">
+            <h3>Ajouter un produit</h3>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/produits/sauvegarder}" method="POST" id="produitForm">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="name"><b>Name</b></label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="name" id="name"
+                               class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="name"><b>Price</b></label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="price" id="price"
+                               class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-save-fill"></i> Sauvegarder le produit
+                </button>
+                <a th:href="@{/produit/all/produits}" class="btn btn-primary">
+                    <i class="bi bi-eye-fill"></i> Produits
+                </a>
+            </form>
+        </div>
+        <div th:if="${message!=null}" class="card-footer bg-white text-info">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>
